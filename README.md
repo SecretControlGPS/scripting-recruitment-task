@@ -12,31 +12,25 @@ languages (in order of our precedence of flavour):
 ### Overview
 
 We need a small command-line tool for some kind of automation which does several tasks as follows:
-- downloads the _"Astronomy Picture of the Day"_ image from the NASA website, using its [APOD API](https://api.nasa.gov/).
-- renames the image in the format of "NASA_APOD_<yyyyMMdd>.<extension>"
-- uploads the image to a given FTP server
-- sends the image and its explanation in an email to a given address using the provided SMTP settings
+- downloads the _"Astronomy Picture of the Day"_ image 🌌 and its explanation from the NASA website, using its [APOD API](https://api.nasa.gov/) 🚀
+- zips the image and its explanation text into an archive file
+- uploads the archive to a given FTP server
+- 💰 _bonus_: sends a notification about the result of the upload in an email to a given address using the provided SMTP settings
 
 ### Specification
 
 #### Requirements
 
-Create a REST API which implements the following endpoints:
-
-* `POST /movies`:
-  * Must store a new movie in the database if does not exist. The movie title is enough in the request body.
-  * Additional movie details should be fetched from http://www.omdbapi.com/ and persisted to database.<br>
-    (At least save these fields: `Title`, `Year`, `Genre`, `Actors`, `Poster`, `imdbRating` - will be needed by the frontend).
-  * Response should contain the additional fields fetched from the external API.
-* `GET /movies`:
-  * Must return all movies stored in the database.
-  * 🦸 _Implementing filtering, sorting is a bonus._
-* `POST /reviews`:
-  * Request must contain the movie ID (already present in database) and the review text in its body.
-  * The review has to be persisted to database and returned in the response.
-* `GET /reviews`:
-  * Must list all existing reviews from the database.
-  * Should support filtering on movie ID.
+* 🚀 APOD API
+  * **prerequisites**: you have to generate an API key on the [website](https://api.nasa.gov/#signUp) to be able to use the API (or alternatively use the `DEMO_KEY`).
+  * the program must get its API key from its input arguments
+  * the program must fetch the JSON content with a standard HTTP GET request using the URL described in the documentation of the API (see the examples).
+  * must be able to parse the JSON response and extract the explanation text from the `explanation` property and the image URL from the `url` property.
+  * you can use any package which is available in your chosen language, or invoke a commonly used tool like `curl`
+* 🗜️ Zipping
+  * the explanation text must be saved into a text file with the correct encoding (UTF-8)
+  * the archive file must be named in the format: `NASA_APOD_yyyyMMdd.zip`, where `yyyyMMdd` is the current date (eg.: `20220824`)
+  * you can use any package which is available in your chosen language, or invoke a commonly used tool like `gzip`
 
 ### Rules & hints
 
