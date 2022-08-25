@@ -12,10 +12,9 @@ languages (in order of our precedence of flavour):
 ### Overview
 
 We need a small command-line tool for some kind of automation which does several tasks as follows:
-- downloads the _"Astronomy Picture of the Day"_ image 🌌 and its explanation from the NASA website, using its [APOD API](https://api.nasa.gov/) 🚀
-- zips the image and its explanation text into an archive file
-- uploads the archive to a given FTP server
-- 💰 _bonus_: sends a notification about the result of the upload in an email to a given address using the provided SMTP settings
+- ⬇️ downloads the _"Astronomy Picture of the Day"_ image 🌌 and its explanation from the NASA website, using its 🚀 [APOD API](https://api.nasa.gov/)
+- 🗜️ zips the image and its explanation text into an archive file
+- ⬆️ uploads the archive to a given FTP server
 
 ### Specification
 
@@ -29,12 +28,19 @@ We need a small command-line tool for some kind of automation which does several
   * you can use any package which is available in your chosen language, or invoke a commonly used tool like `curl`
 * 🗜️ Zipping
   * the explanation text must be saved into a text file with the correct encoding (UTF-8)
+  * the image downloaded from the extracted URL must be named as the original resource file
   * the archive file must be named in the format: `NASA_APOD_yyyyMMdd.zip`, where `yyyyMMdd` is the current date (eg.: `20220824`)
   * you can use any package which is available in your chosen language, or invoke a commonly used tool like `gzip`
+* FTP
+  * the archived file must be uploaded to the root folder of the FTP server, provided the server's host name and its credentials in the input arguments.
+  * the program must logout after the upload finished
+  * you can use any package which is available in your chosen language, or invoke a commonly used tool
 
 ### Rules & hints
 
-* Your application's code should be uploaded to a public Git repository which you must grant access to us. Please, include README file with basic notes on application requirements and setup - we must be able to easily build and run it by ourselves.
+* Input arguments (API key, FTP host and credentials) can be provided in the tool's input argumants or as environment variables
+* Minimum error handling is required, the program must exit with a negative exit code on failure
+* Your application's code should be uploaded to a public Git repository which you must grant access to us. Please, include README file with basic notes on application requirements and setup - we must be able to easily run it by ourselves.
 * 🏖️ Relax, there's no time limit for the task (at least in reasonable limits). If you feel that the task is too much, you can skip some parts of it, and we will discuss how you would have done the remaining parts.
 
 **Good luck! If you are stuck or have any questions feel free to contact us!**
