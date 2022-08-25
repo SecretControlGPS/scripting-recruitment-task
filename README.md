@@ -40,6 +40,7 @@ We need a small command-line tool for some kind of automation which does several
 
 * Input arguments (API key, FTP host and credentials) can be provided in the tool's input argumants or as environment variables
 * Minimum error handling is required, the program must exit with a negative exit code on failure
+* Implementing an argument usage helper (similar to `argparse` in Python and Go) is a big plus 💰
 * Your application's code should be uploaded to a public Git repository which you must grant access to us. Please, include README file with basic notes on application requirements and setup - we must be able to easily run it by ourselves.
 * 🏖️ Relax, there's no time limit for the task (at least in reasonable limits). If you feel that the task is too much, you can skip some parts of it, and we will discuss how you would have done the remaining parts.
 
