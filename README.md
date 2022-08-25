@@ -12,7 +12,7 @@ languages (in order of our precedence of flavour):
 ### Overview
 
 We need a small command-line tool for some kind of automation which does several tasks as follows:
-- ⬇️ downloads the _"Astronomy Picture of the Day"_ image 🌌 and its explanation from the NASA website, using its 🚀 [APOD API](https://api.nasa.gov/)
+- ⬇️ downloads the _"Astronomy Picture of the Day"_ image 🌌 and its explanation from the NASA website, using its 🚀 [APOD API](https://api.nasa.gov/#browseAPI)
 - 🗜️ zips the image and its explanation text into an archive file
 - ⬆️ uploads the archive to a given FTP server
 
